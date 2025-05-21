@@ -1,20 +1,20 @@
 /*
-"Task Tracker Dinamico": Un'Applicazione Web per la Gestione delle Attività.
+"Task Tracker Dinamico": Un'Applicazione Web per la Gestione delle Attivita'.
 
     L'idea:
         Sviluppare un'applicazione web che permetta agli utenti di
-        creare, modificare, eliminare e organizzare le proprie attività.
+        creare, modificare, eliminare e organizzare le proprie attivita'.
         Potresti usare HTML per la struttura, CSS per lo stile e JavaScript
-        per la dinamicità (aggiungere/rimuovere task senza ricaricare la
+        per la dinamicita' (aggiungere/rimuovere task senza ricaricare la
         pagina, ordinare, filtrare).
-        Per mostrare le tue qualità, potresti implementare funzionalità
-        avanzate come l'assegnazione di priorità, date di scadenza,
+        Per mostrare le tue qualita', potresti implementare funzionalita'
+        avanzate come l'assegnazione di priorita', date di scadenza,
         categorie e magari anche la persistenza dei dati
         (anche solo usando il localStorage del browser all'inizio).
 
     Tocco C++ (pensando al "dietro le quinte"):
         Potresti immaginare di creare una libreria in C++ per la
-        gestione efficiente dei dati delle attività (aggiunta,
+        gestione efficiente dei dati delle attivita' (aggiunta,
         ricerca, ordinamento) e poi esporla tramite un'interfaccia
         (magari usando qualcosa come FastCGI o un framework web C++)
         a cui la tua applicazione JavaScript potrebbe fare delle chiamate.
@@ -26,7 +26,7 @@
 #include <iomanip>
 using namespace std;
 
-// Classe che rappresenta un'attività
+// Classe che rappresenta un'attivita'
 class Task
 {
 private:
@@ -65,7 +65,7 @@ public:
     }
 };
 
-// Classe che gestisce un insieme di attività
+// Classe che gestisce un insieme di attivita'
 class TaskManager
 {
 private:
@@ -123,10 +123,10 @@ int main()
     while (true)
     {
         cout << "\n--- Task Tracker Dinamico ---\n";
-        cout << "1. Aggiungi attività\n";
-        cout << "2. Rimuovi attività\n";
-        cout << "3. Visualizza tutte le attività\n";
-        cout << "4. Filtra attività per priorità\n";
+        cout << "1. Aggiungi attivita'\n";
+        cout << "2. Rimuovi attivita'\n";
+        cout << "3. Visualizza tutte le attivita'\n";
+        cout << "4. Filtra attivita' per priorita'\n";
         cout << "5. Esci\n";
         cout << "Seleziona un'opzione: ";
 
@@ -139,44 +139,46 @@ int main()
             int priority;
 
             cout << "Titolo: ";
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             getline(cin, title);
             cout << "Descrizione: ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             getline(cin, description);
-            cout << "Categoria: ";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             getline(cin, category);
-            cout << "Priorità (1 = Alta, 2 = Media, 3 = Bassa): ";
+            getline(cin, category);
+            cout << "Priorita' (1 = Alta, 2 = Media, 3 = Bassa): ";
             cin >> priority;
             cout << "Data di scadenza (YYYY-MM-DD): ";
             cin >> dueDate;
 
             manager.addTask(title, description, category, priority, dueDate);
-            cout << "Attività aggiunta con successo!\n";
+            cout << "Attivita' aggiunta con successo!\n";
         }
         else if (choice == 2)
         {
             int id;
-            cout << "Inserisci l'ID dell'attività da rimuovere: ";
+            cout << "Inserisci l'ID dell'attivita' da rimuovere: ";
             cin >> id;
 
             if (manager.removeTask(id))
-                cout << "Attività rimossa con successo!\n";
+                cout << "Attivita' rimossa con successo!\n";
             else
-                cout << "Attività non trovata.\n";
+                cout << "Attivita' non trovata.\n";
         }
         else if (choice == 3)
         {
-            cout << "\n--- Tutte le attività ---\n";
+            cout << "\n--- Tutte le attivita' ---\n";
             manager.printAllTasks();
         }
         else if (choice == 4)
         {
             int priority;
-            cout << "Inserisci la priorità da filtrare (1 = Alta, 2 = Media, 3 = Bassa): ";
+            cout << "Inserisci la priorita' da filtrare (1 = Alta, 2 = Media, 3 = Bassa): ";
             cin >> priority;
 
             auto filteredTasks = manager.getTasksByPriority(priority);
-            cout << "\n--- Attività con priorità " << priority << " ---\n";
+            cout << "\n--- Attivita' con priorita' " << priority << " ---\n";
             cout << left << setw(5) << "ID"
                  << setw(20) << "Title"
                  << setw(30) << "Description"
