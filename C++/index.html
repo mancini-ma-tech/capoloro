@@ -3,43 +3,104 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Task Tracker Dinamico - Organizza e gestisci le tue attività in modo semplice e professionale."
+    />
+    <meta name="author" content="Capoloro" />
     <title>Task Tracker Dinamico</title>
-    <link rel="stylesheet" href="..//C++/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../C++/index.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>Task Tracker Dinamico</h1>
-
-      <div class="add-task">
-        <h2>Aggiungi Nuova Attività</h2>
-        <input type="text" id="taskTitle" placeholder="Titolo" />
-        <input type="text" id="taskDescription" placeholder="Descrizione" />
-        <input type="text" id="taskCategory" placeholder="Categoria" />
-        <select id="taskPriority">
-          <option value="1">Priorità: Alta</option>
-          <option value="2">Priorità: Media</option>
-          <option value="3">Priorità: Bassa</option>
-        </select>
-        <input type="date" id="taskDueDate" />
-        <button id="addTaskBtn">Aggiungi Attività</button>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Task Tracker Dinamico</h1>
       </div>
+    </header>
 
-      <div class="task-list">
-        <h2>Le Tue Attività</h2>
+    <main class="main-content container">
+      <section class="add-task">
+        <h2 class="section-title">Aggiungi Nuova Attività</h2>
+        <form id="addTaskForm" class="task-form">
+          <div class="form-group">
+            <label for="taskTitle">Titolo</label>
+            <input
+              type="text"
+              id="taskTitle"
+              placeholder="Inserisci il titolo"
+              aria-label="Titolo dell'attività"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="taskDescription">Descrizione</label>
+            <textarea
+              id="taskDescription"
+              placeholder="Inserisci la descrizione"
+              aria-label="Descrizione dell'attività"
+              rows="3"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="taskCategory">Categoria</label>
+            <input
+              type="text"
+              id="taskCategory"
+              placeholder="Inserisci la categoria"
+              aria-label="Categoria dell'attività"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="taskPriority">Priorità</label>
+            <select id="taskPriority" aria-label="Seleziona priorità" required>
+              <option value="1">Alta</option>
+              <option value="2">Media</option>
+              <option value="3">Bassa</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskDueDate">Data di Scadenza</label>
+            <input
+              type="date"
+              id="taskDueDate"
+              aria-label="Data di scadenza"
+              required
+            />
+          </div>
+          <button type="submit" id="addTaskBtn" class="btn btn-primary">
+            Aggiungi Attività
+          </button>
+        </form>
+      </section>
+
+      <section class="task-list">
+        <h2 class="section-title">Le Tue Attività</h2>
         <div class="filters">
           <label for="filterPriority">Filtra per Priorità:</label>
-          <select id="filterPriority">
+          <select id="filterPriority" aria-label="Filtra per priorità">
             <option value="">Tutte</option>
             <option value="1">Alta</option>
             <option value="2">Media</option>
             <option value="3">Bassa</option>
           </select>
         </div>
-        <ul id="tasksContainer">
+        <ul id="tasksContainer" class="tasks-container">
           <li class="no-tasks">Nessuna attività da visualizzare.</li>
         </ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Task Tracker Dinamico. Tutti i diritti riservati.</p>
       </div>
-    </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
