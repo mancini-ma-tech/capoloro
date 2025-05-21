@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Tracker Dinamico</title>
+    <link rel="stylesheet" href="..//C++/index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Task Tracker Dinamico</h1>
+
+      <div class="add-task">
+        <h2>Aggiungi Nuova Attività</h2>
+        <input type="text" id="taskTitle" placeholder="Titolo" />
+        <input type="text" id="taskDescription" placeholder="Descrizione" />
+        <input type="text" id="taskCategory" placeholder="Categoria" />
+        <select id="taskPriority">
+          <option value="1">Priorità: Alta</option>
+          <option value="2">Priorità: Media</option>
+          <option value="3">Priorità: Bassa</option>
+        </select>
+        <input type="date" id="taskDueDate" />
+        <button id="addTaskBtn">Aggiungi Attività</button>
+      </div>
+
+      <div class="task-list">
+        <h2>Le Tue Attività</h2>
+        <div class="filters">
+          <label for="filterPriority">Filtra per Priorità:</label>
+          <select id="filterPriority">
+            <option value="">Tutte</option>
+            <option value="1">Alta</option>
+            <option value="2">Media</option>
+            <option value="3">Bassa</option>
+          </select>
+        </div>
+        <ul id="tasksContainer">
+          <li class="no-tasks">Nessuna attività da visualizzare.</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

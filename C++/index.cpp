@@ -19,6 +19,7 @@
         (magari usando qualcosa come FastCGI o un framework web C++)
         a cui la tua applicazione JavaScript potrebbe fare delle chiamate.
 */
+
 #include <iostream>
 #include <vector>
 #include <string>
