@@ -24,6 +24,7 @@
 #include <string>
 #include <algorithm>
 #include <iomanip>
+#include <limits>
 using namespace std;
 
 // Classe che rappresenta un'attivita'
